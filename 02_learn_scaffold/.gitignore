@@ -22,6 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-../.idea/
-../01_learn_react/
-../react.md
+.idea/
+01_learn_react/
+react.md
