@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="title"></h2>
+    <button class="change">改变文本</button>
+    <script>
+        let message = 'hellow world'
+        document.getElementsByClassName('title')[0].innerHTML = message
+        document.getElementsByClassName('change')[0].addEventListener('click', () => {
+            message = 'hellow react'
+            document.getElementsByClassName('title')[0].innerHTML = message
+        })
+    </script>
+</body>
+</html>

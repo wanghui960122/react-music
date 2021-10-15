@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 封装App组件
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    messaage: 'hello world',
+                }
+                this.btnClick = this.btnClick.bind(this)
+            }
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.btnClick}>{this.state.messaage}</button>
+                        <button onClick={this.mul}>{this.state.messaage}</button>
+                        <button onClick={() => {this.add()}}>{this.state.messaage}</button>
+                    </div>
+                )
+            }
+            btnClick() {
+                console.log(this);
+                console.log('222');
+            }
+            mul = () => {
+                console.log(this);
+                console.log(333);
+            }
+            add() {
+                console.log(this);
+                console.log(444);
+            }
+        }
+        ReactDOM.render(
+        /** 渲染内容 **/ 
+            <App/>,
+            /** 挂载对象 **/ 
+            document.getElementById('app'))
+    </script>
+</body>
+</html>

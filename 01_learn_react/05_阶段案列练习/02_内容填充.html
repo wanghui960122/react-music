@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+    <script src="./format-utils.js"></script>
+</head>
+<style>
+    table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #000;
+        padding: 10px 16px;
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 封装App组件
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    books: [
+                        {
+                        id: 1,
+                        name: '《算法导论》',
+                        date: '2006-9',
+                        price: 85.00,
+                        count: 1
+                        },
+                        {
+                        id: 2,
+                        name: '《UNIX编程艺术》',
+                        date: '2006-2',
+                        price: 59.00,
+                        count: 1
+                        },
+                        {
+                        id: 3,
+                        name: '《编程珠玑》',
+                        date: '2008-10',
+                        price: 39.00,
+                        count: 1
+                        },
+                        {
+                        id: 4,
+                        name: '《代码大全》',
+                        date: '2006-3',
+                        price: 128.00,
+                        count: 1
+                        },
+                    ]
+                }
+            }
+            render() {
+                const { books } = this.state
+                return (
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>书籍名称</th>
+                                    <th>出版日期</th>
+                                    <th>价格</th>
+                                    <th>购买数量</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               {books.map((item, index) => {
+                                return (
+                                    <tr>
+                                    <td>{item.id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.date}</td>
+                                    <td>{formatPrice(item.price)}</td>
+                                    <td>
+                                        <button>-</button>
+                                        &nbsp;{item.count}&nbsp;
+                                        <button>+</button>
+                                    </td>
+                                    <td><button>移除</button></td>
+                                </tr>
+                                )
+                               })}
+                            </tbody>
+                        </table>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+        /** 渲染内容 **/ 
+            <App/>,
+            /** 挂载对象 **/ 
+            document.getElementById('app'))
+    </script>
+</body>
+</html>

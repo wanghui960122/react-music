@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 封装App组件
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    messaage: 'hello world',
+                    imgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.codes51.com%2FArticle%2Fimage%2F20171113%2F20171113192033_1230.png&refer=http%3A%2F%2Fimage.codes51.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636789224&t=adb4c5b3f01824c1852c053443e92796'
+                }
+            }
+            render() {
+                return (
+                    <div>
+                        <h2 title={this.state.messaage}>你好</h2>
+                        <img src={this.state.imgUrl} alt="" />
+                        <a href="http://www.baidu.com" target="_blank" rel="noopener noreferrer">百度一下</a>
+                        {/* 绑定class */}
+                        <div className="div_box">我是div元素</div>
+                        <div className={'div_box ' + (true ? 'active' : '')}>我是div元素</div>
+                        {/* 绑定style */}
+                        <div style={{color: 'red', fontSize: '20px'}}>绑定style</div>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+        /** 渲染内容 **/ 
+            <App/>,
+            /** 挂载对象 **/ 
+            document.getElementById('app'))
+    </script>
+</body>
+</html>
