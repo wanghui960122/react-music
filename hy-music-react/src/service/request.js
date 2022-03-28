@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const httpRequest = axios.create({
   timeout: 30000,
-  baseURL: "/backend",
 });
 
 httpRequest.interceptors.request.use(
